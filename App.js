@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, FlatList, Text, Image } from "react-native";
+import news_data from "./news_data.json";
+import { News } from "./components/News";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.mainHeader}>News</Text>
+      <FlatList
+        data={news_data}
+        renderItem={(data) => <News item={data.item} />}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 30,
+    padding: 15,
+    backgroundColor: "#EFECEC",
+  },
+
+  mainHeader: {
+    fontWeight: "900",
+    fontSize: 30,
   },
 });
