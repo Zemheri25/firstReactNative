@@ -3,13 +3,14 @@ import news_data from "./news_data.json";
 import { News } from "./components/News";
 
 export default function App() {
+  const renderNews = ({ item }) => {
+    return <News item={item} />;
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.mainHeader}>News</Text>
-      <FlatList
-        data={news_data}
-        renderItem={(data) => <News item={data.item} />}
-      />
+      <FlatList data={news_data} renderItem={renderNews} />
     </View>
   );
 }
